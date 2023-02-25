@@ -1,4 +1,3 @@
-COPY
 pipeline {
     agent any
     tools {
@@ -22,12 +21,11 @@ pipeline {
                         sudo apt-get update && \
                         sudo apt-get install -y aspnetcore-runtime-7.0
                     '''
+                  }
             }
         stage('Build') {
             steps {
-		ls
                 sh 'npm install'
-            	
             }
         }
         stage('Test') {
@@ -45,11 +43,8 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                script {
-                    sh 'ls'
-                    }
+                sh 'ls'
                 }
             }
         }
     }
-}
